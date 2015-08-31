@@ -1,0 +1,29 @@
+button {
+    padding: 0 0;
+}
+
+nav button {
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+input {
+    text-align: center;
+}
+
+.button-danger {
+    color: white;
+    background-color: red;
+    border: none;
+}
+
+button.tiny {
+    padding: 5px;
+    line-height: 10px;
+    height: auto;
+}
+
+td:last-child, th:last-child {
+    text-align: right;
+}
