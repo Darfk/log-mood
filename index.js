@@ -32,7 +32,7 @@ var Settings = R.createClass({
   exportCSV:function () {
     var entries = this.props.app.state.entries;
     return entries.reduce(function (a, e) {
-      return a + ([e.id, e.datetime, e.mood, e.stress, e.note].map(function (i){
+      return a + ([e.id, (new Date(e.datetime)).toISOString(), e.mood, e.stress, e.note].map(function (i){
         return "\"" + i + "\"";
       }).join(",")) + "\n";
     }, "");
@@ -42,7 +42,9 @@ var Settings = R.createClass({
     return RcE("div", {className:"container"},
                RcE("h3", null, "Import/Export"),
                RcE("p", null,
-                  RcE("a", {href:"data:text/csv," + encodeURIComponent(this.exportCSV())}, "Export CSV")));
+                   RcE("a", {href:"data:text/csv," + encodeURIComponent(this.exportCSV())}, "Export CSV")),
+               RcE("div", null, this.exportCSV())
+              );
   },
 });
 
